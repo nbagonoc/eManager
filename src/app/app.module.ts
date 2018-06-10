@@ -10,68 +10,74 @@ import { AngularFireDatabase } from "angularfire2/database";
 import { AngularFireAuth } from "angularfire2/auth";
 
 // SERVICE
-import { ClientService } from "./services/client.service";
+import { EmployeeService } from "./services/employee.service";
 import { AuthService } from "./services/auth.service";
 import { AuthGuard } from "./guards/auth.guard";
 
 // COMPONENTS
 import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
-import { ClientsComponent } from "./components/clients/clients.component";
-import { ClientDetailsComponent } from "./components/client-details/client-details.component";
-import { AddClientComponent } from "./components/add-client/add-client.component";
-import { EditClientComponent } from "./components/edit-client/edit-client.component";
+import { EmployeesComponent } from "./components/employees/employees.component";
+import { EmployeeDetailsComponent } from "./components/employee-details/employee-details.component";
+import { AddEmployeeComponent } from "./components/add-employee/add-employee.component";
+import { EditEmployeeComponent } from "./components/edit-employee/edit-employee.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { SettingsComponent } from "./components/settings/settings.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { HomeComponent } from "./components/home/home.component";
 
 // ROUTES
 const appRoutes: Routes = [
-  { path: "", component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: "register", component: RegisterComponent },
+  { path: "", component: HomeComponent },
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: "register", component: RegisterComponent, canActivate: [AuthGuard] },
   { path: "login", component: LoginComponent },
   {
-    path: "add-client",
-    component: AddClientComponent,
+    path: "add-employee",
+    component: AddEmployeeComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: "client/:id",
-    component: ClientDetailsComponent,
+    path: "employee/:id",
+    component: EmployeeDetailsComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: "edit-client/:id",
-    component: EditClientComponent,
+    path: "edit-employee/:id",
+    component: EditEmployeeComponent,
     canActivate: [AuthGuard]
   }
 ];
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCz31goPmRQ1Sl29DRuBc4GH6yvPUQ1Q08",
-  authDomain: "angular-fire-849f9.firebaseapp.com",
-  databaseURL: "https://angular-fire-849f9.firebaseio.com",
-  storageBucket: "angular-fire-849f9.appspot.com",
-  messagingSenderId: "64375233909"
+  apiKey: "AIzaSyAoZRO3tFp8NMMydW_sCl0sCnODWmEe1aw",
+  authDomain: "employee-manager-313a3.firebaseapp.com",
+  databaseURL: "https://employee-manager-313a3.firebaseio.com",
+  messagingSenderId: "391084452730"
 };
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ClientsComponent,
-    ClientDetailsComponent,
-    AddClientComponent,
-    EditClientComponent,
+    EmployeesComponent,
+    EmployeeDetailsComponent,
+    AddEmployeeComponent,
+    EditEmployeeComponent,
     NavbarComponent,
     SidebarComponent,
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +89,7 @@ export const firebaseConfig = {
   providers: [
     AngularFireAuth,
     AngularFireDatabase,
-    ClientService,
+    EmployeeService,
     AuthService,
     AuthGuard
   ],

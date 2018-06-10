@@ -13,9 +13,9 @@ export class LoginComponent implements OnInit {
   password: string;
 
   constructor(
-    private authService: AuthService,
-    private router: Router,
-    private flashMessagesService: FlashMessagesService
+    public authService: AuthService,
+    public router: Router,
+    public flashMessagesService: FlashMessagesService
   ) {}
 
   ngOnInit() {}
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.email, this.password)
       .then(res => {
-        this.router.navigate(["/"]);
+        this.router.navigate(["/dashboard"]);
       })
       .catch(err => {
         this.flashMessagesService.show(err.message, {

@@ -12,7 +12,6 @@ import "rxjs/add/operator/map";
 export class NavbarComponent implements OnInit {
   isLoggedIn: boolean;
   loggedInUser: string;
-  showRegister: boolean;
 
   constructor(
     private authService: AuthService,

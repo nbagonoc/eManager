@@ -1,0 +1,16 @@
+<div class="cover">
+  <div class="cover-text">
+    <div class="text-center">
+      <h1 class="text-success font-weight-bold display-3 mb-0">
+        eMANAGER
+      </h1>
+      <h3 class="text-secondary font-weight-light">
+        managing employees the right way
+      </h3>
+      <a *ngIf="!isLoggedIn" href="#" routerLink="/login" class="btn btn-success btn-lg mt-2">
+        <i class="fa fa-sign-in-alt mr-2"></i>Admin Login</a>
+      <a *ngIf="isLoggedIn" href="#" routerLink="/dashboard" class="btn btn-success btn-lg mt-2">
+        <i class="fa fa-toolbox mr-2"></i>Get Started</a>
+    </div>
+  </div>
+</div>
