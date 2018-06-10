@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { FlashMessagesService } from "angular2-flash-messages";
-import { Router } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import "rxjs/add/operator/map";
 
@@ -15,7 +14,6 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router,
     private flashMessagesService: FlashMessagesService
   ) {}
 
@@ -32,6 +30,5 @@ export class NavbarComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
-    this.router.navigate(["/login"]);
   }
 }
